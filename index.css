@@ -59,6 +59,7 @@ body {
     vertical-align: middle;
     font-weight: bold;
     color:#ff481f;
+    cursor: pointer;
     position: absolute;
 }
 .button-wrapper{
@@ -126,6 +127,7 @@ body {
     /* vertical-align: middle; */
     /* font-weight: bold; */
     color:#ff481f;
+    cursor: pointer;
     position: absolute;
 }
 
@@ -137,6 +139,8 @@ body {
     background-color: #440805;
     border-radius: 50%;
     margin: auto;
+    box-shadow: 0px 4px 4px 4px #999;
+    cursor: pointer;cursor: pointer;
     display: inline-block;
 }
 
@@ -148,6 +152,8 @@ body {
     background-color: #f8160a;
     border-radius: 50%;
     margin: auto;
+    box-shadow: 0px 4px 4px 4px #999;
+    cursor: pointer;
     display: inline-block;
 }
 #kick-mute {
@@ -166,6 +172,7 @@ body {
     /* vertical-align: middle; */
     /* font-weight: bold; */
     color:#ff481f;
+    cursor: pointer;
     position: absolute;
 }
 
@@ -202,6 +209,7 @@ body {
     font-weight: bolder;
     text-align: center;
     color: black;
+    cursor: pointer;
     position: absolute;
 
 }
@@ -219,6 +227,7 @@ body {
     font-weight: bolder;
     text-align: center;
     color: black;
+    cursor: pointer;
     position: absolute;
 
 }
@@ -230,6 +239,7 @@ body {
     height: 35px;
     margin-top: 57px;
     margin-left: 25px;
+    cursor: pointer;
     /* cursor: default; */
     position: absolute;
 }
@@ -253,6 +263,7 @@ body {
     border-radius: 10px;
     text-align: center;
     font-size: 13px;
+    cursor: pointer;
     /* vertical-align: middle; */
     /* font-weight: bold; */
     color:#ff481f;
@@ -268,6 +279,8 @@ body {
     background-color: #440805;
     border-radius: 50%;
     margin: auto;
+    box-shadow: 0px 4px 4px 4px #999;
+    cursor: pointer;
     display: inline-block;
 }
 
@@ -279,6 +292,8 @@ body {
     background-color: #f8160a;
     border-radius: 50%;
     margin: auto;
+    box-shadow: 0px 4px 4px 4px #999;
+    cursor: pointer;
     display: inline-block;
 }
 
@@ -295,6 +310,7 @@ body {
     border-radius: 10px;
     text-align: center;
     font-size: 12px;
+    cursor: pointer;
     /* vertical-align: middle; */
     /* font-weight: bold; */
     color:#ff481f;
