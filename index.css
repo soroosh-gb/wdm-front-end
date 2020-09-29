@@ -17,14 +17,21 @@ body {
     justify-content: center;
     height: 100vh;
 } */
-
+kbd {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
 #drum-case {
     display: flex;
     /* justify-content: center; */
     /* align-items: center;  */
     background-color: #cbcdcc;
     width: 130vh;
-    height: 60vh;
+    height: 65vh;
     margin: auto;
     margin-top: 10%;
     position: relative;
@@ -34,7 +41,7 @@ body {
 #left-pannel {
     background-color: #a99337;
     width: 10px;
-    height: 60vh;
+    height: 65vh;
     margin-left: 0px;
     position: absolute;
 }
@@ -42,7 +49,7 @@ body {
     top: 0;
     background-color: #a99337;
     width: 10px;
-    height: 60vh;
+    height: 65vh;
     right:0; 
     bottom: 0;
     position: absolute;
@@ -55,9 +62,8 @@ body {
     margin-top: 57px;
     margin-left: 25px;
     box-shadow: 0px 4px 4px 4px #999;
-    text-align: center;
-    vertical-align: middle;
     font-weight: bold;
+    font-size: 18px;
     color:#ff481f;
     cursor: pointer;
     position: absolute;
@@ -317,12 +323,167 @@ body {
     position: absolute;
 }
 
-kbd {
+.closehat-button-wrapper {
+    width: 95vh;
+    height: 30px;
+    margin-left: 110px;
+    margin-top: 50px;
+    display: grid;
+    /* position: absolute; */
+    grid-template-columns: 40px repeat(15, 1fr)   
+  }
+
+  #closehat-trigger {
+    background-color: #505351;
+    width: 50px;
+    height: 50px;
+    margin-top: 287px;
+    margin-left: 36px;
+    box-shadow: 0px 4px 4px 4px #999;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+    /* vertical-align: middle; */
+    /* font-weight: bold; */
+    color:#ff481f;
+    position: absolute;
+}
+
+
+.sequencer-closehat{ 
+    width: 30px;
+    height: 30px;
+    height: 15px;
+    width: 15px;
+    background-color: #440805;
+    border-radius: 50%;
+    margin: auto;
+    box-shadow: 0px 4px 4px 4px #999;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.sequencer-closehat-lit {
+    width: 30px;
+    height: 30px;
+    height: 15px;
+    width: 15px;
+    background-color: #f8160a;
+    border-radius: 50%;
+    margin: auto;
+    box-shadow: 0px 4px 4px 4px #999;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#closehat-mute {
+    background-color: #505351;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    margin-top: 287px;
+    margin-left: 792px;
+    right: 1;
+    bottom: 0;
+    box-shadow: 0px 4px 4px 4px #999;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    /* vertical-align: middle; */
+    /* font-weight: bold; */
+    color:#ff481f;
+    position: absolute;
+}
+
+.openhat-button-wrapper {
+    width: 95vh;
+    height: 30px;
+    margin-left: 110px;
+    margin-top: 50px;
+    display: grid;
+    /* position: absolute; */
+    grid-template-columns: 40px repeat(15, 1fr)   
+  }
+
+  #openhat-trigger {
+    background-color: #505351;
+    width: 50px;
+    height: 50px;
+    margin-top: 367px;
+    margin-left: 36px;
+    box-shadow: 0px 4px 4px 4px #999;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+    /* vertical-align: middle; */
+    /* font-weight: bold; */
+    color:#ff481f;
+    position: absolute;
+}
+
+
+.sequencer-openhat{ 
+    width: 30px;
+    height: 30px;
+    height: 15px;
+    width: 15px;
+    background-color: #440805;
+    border-radius: 50%;
+    margin: auto;
+    box-shadow: 0px 4px 4px 4px #999;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.sequencer-openhat-lit {
+    width: 30px;
+    height: 30px;
+    height: 15px;
+    width: 15px;
+    background-color: #f8160a;
+    border-radius: 50%;
+    margin: auto;
+    box-shadow: 0px 4px 4px 4px #999;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#openhat-mute {
+    background-color: #505351;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    margin-top: 367px;
+    margin-left: 792px;
+    right: 1;
+    bottom: 0;
+    box-shadow: 0px 4px 4px 4px #999;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    /* vertical-align: middle; */
+    /* font-weight: bold; */
+    color:#ff481f;
+    position: absolute;
+}
+
+#bar-line1 {
+    border: solid #161e27; 
+    width: 140px; 
+    margin-left: 120px; 
+    margin-top: 20px;
+    padding: 0;
+}
+
+.sound {
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-
 }
