@@ -9,7 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let newBpm = currentBpm + 1
     if(newBpm <= 150){
         bpm.innerText = newBpm
-        // updateBpm(newBpm)
+        if(document.querySelector("#play-stop-button").innerText === "STOP"){
+            stopPlay(false)
+            play()
+        }
         
     }
 }
@@ -19,49 +22,54 @@ document.addEventListener("DOMContentLoaded", () => {
     let newBpm = currentBpm - 1
     if(newBpm >= 60){
         bpm.innerText = newBpm
-        // updateBpm(newBpm)
+        if(document.querySelector("#play-stop-button").innerText === "STOP"){
+            stopPlay(false)
+            play()
+        }
     }
 }
 
-// const updateBpm = newBpm => {
-//     console.log(newBpm)
-//     let interval = Math.floor((60000 / parseInt(bpm)) / 4)
-//     console.log(interval)
-// }
-let bpm = (document.querySelector("#bpm")).innerText
-    console.log(bpm)
-    
+const getBpm = () => {
+    return (document.querySelector("#bpm")).innerText
+}
+const getInterval = () =>{
+     return (60000 / parseInt(getBpm())) / 4;
+    }
 
- let interval = (60000 / parseInt(bpm)) / 4;
- console.log(interval)
  let stepCount = 1
+ const playAll = () => {
+    runSequencer()
+    playKick()
+    playSnare()
+    playClosehat()
+    playOpenhat()
+    stepCount++
+    if(stepCount > 16) {
+        stepCount = 1
+     }
+   }
 
  const play = () =>{
-   playBack = setInterval(function() {
-       runSequencer()
-       playKick()
-       playSnare()
-       playClosehat()
-       playOpenhat()
-       
-       stepCount++
-       if(stepCount > 16) {
-           stepCount = 1
-        }
-    }, interval)
+    playBack = setInterval(function() {
+        playAll();
+    }, getInterval())
  }
 
 function runSequencer() {
     let stringStep = stepCount.toString();
     let step = document.querySelector(`#status-light-${stringStep}`)
-    step.classList.toggle("status-light-lit")
-    
+    // step.classList.toggle("status-light-lit")
+    step.classList = "status-light-lit"
+    setTimeout(function () {step.classList = "status-light"}, getInterval())
  }
 
+
     
- const stopPlay = () => {
+ const stopPlay = (reset = true) => {
     clearInterval(playBack)
-    stepCount = 1
+    if(reset) {
+        stepCount = 1
+    }
 }
 
 const playKick = () => {
@@ -72,6 +80,7 @@ const playKick = () => {
         const audio = document.getElementById("909-kick")
         if(!audio) return; 
         audio.currentTime= 0
+        audio.volume = 0.8
         audio.play()
     }
 }
@@ -83,6 +92,7 @@ const playSnare = () => {
         const audio = document.getElementById("909-snare")
         if(!audio) return; 
         audio.currentTime= 0
+        audio.volume = 0.8
         audio.play()
     }
 }
@@ -94,6 +104,7 @@ const playClosehat= () => {
         const audio = document.getElementById("909-closehat")
         if(!audio) return; 
         audio.currentTime= 0
+        audio.volume = 0.5
         audio.play()
     }
 }
@@ -105,6 +116,7 @@ const playOpenhat= () => {
         const audio = document.getElementById("909-openhat")
         if(!audio) return; 
         audio.currentTime= 0
+        audio.volume = 0.4
         audio.play()
     }
 }
@@ -112,8 +124,6 @@ const playOpenhat= () => {
  
     
    
-
-    
     const clickHandler = () => {
         document.addEventListener("click", e => {
             if(e.target.matches("#play-stop-button")) {
@@ -131,6 +141,7 @@ const playOpenhat= () => {
                 const audio = document.getElementById("909-kick")
                 if(!audio) return; //stop the function from running all together
                 audio.currentTime= 0 //rewind to the start
+                audio.volume = 0.8
                 audio.play()
             }
             else if(e.target.matches("#snare-trigger")){
@@ -138,13 +149,15 @@ const playOpenhat= () => {
                 const audio = document.getElementById("909-snare")
                 if(!audio) return; 
                 audio.currentTime= 0 
+                audio.volume = 0.8
                 audio.play()
             }
             else if(e.target.matches("#closehat-trigger")){
                 // play close hat sample from library
                 const audio = document.getElementById("909-closehat")
                 if(!audio) return; 
-                audio.currentTime= 0 
+                audio.currentTime= 0
+                audio.volume = 0.5 
                 audio.play()
             }
             else if(e.target.matches("#openhat-trigger")){
@@ -152,6 +165,7 @@ const playOpenhat= () => {
                 const audio = document.getElementById("909-openhat")
                 if(!audio) return; 
                 audio.currentTime= 0 
+                audio.volume = 0.4
                 audio.play()
             }
             else if(e.target.matches("#kick-mute")){

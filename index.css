@@ -55,8 +55,11 @@ kbd {
     position: absolute;
 }
 #play-stop-button {
+    display: flex;
     background-color: #161e27;
     border: 3px solid #ff481f;
+    justify-content: center;
+    align-content: center;
     width: 70px;
     height: 35px;
     margin-top: 57px;
@@ -67,6 +70,13 @@ kbd {
     color:#ff481f;
     cursor: pointer;
     position: absolute;
+}
+#play-stop-button > img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
 }
 .button-wrapper{
     /* background-color: black; */
