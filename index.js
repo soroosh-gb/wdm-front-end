@@ -1,15 +1,114 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
+   
+ let playBack;
+ let bpm = 126;
+ let interval = (60000 / bpm) / 4;
+ let stepCount = 1
 
+
+
+ const play = () =>{
+   playBack = setInterval(function() {
+       runSequencer()
+       playKick()
+       playSnare()
+       playClosehat()
+       playOpenhat()
+       
+       stepCount++
+       if(stepCount > 16) {
+           stepCount = 1
+        }
+    }, interval)
+ }
+
+function runSequencer() {
+    let stringStep = stepCount.toString();
+    let step = document.querySelector(`#status-light-${stringStep}`)
+    step.classList.toggle("status-light-lit")
+    
+ }
+
+    
+ const stopPlay = () => {
+    clearInterval(playBack)
+}
+
+const playKick = () => {
+    let stringStep = stepCount.toString();
+    let kickStep = document.querySelector(`#kick-${stringStep}`)
+    if(kickStep.className === "sequencer-kick-lit") {
+        const audio = document.getElementById("909-kick")
+        if(!audio) return; 
+        audio.currentTime= 0
+        audio.play()
+    }
+}
+const playSnare = () => {
+    let stringStep = stepCount.toString();
+    let snareStep = document.querySelector(`#snare-${stringStep}`)
+    if(snareStep.className === "sequencer-snare-lit") {
+        const audio = document.getElementById("909-snare")
+        if(!audio) return; 
+        audio.currentTime= 0
+        audio.play()
+    }
+}
+const playClosehat= () => {
+    let stringStep = stepCount.toString();
+    let closehatStep = document.querySelector(`#closehat-${stringStep}`)
+    if(closehatStep.className === "sequencer-closehat-lit") {
+        const audio = document.getElementById("909-closehat")
+        if(!audio) return; 
+        audio.currentTime= 0
+        audio.play()
+    }
+}
+const playOpenhat= () => {
+    let stringStep = stepCount.toString();
+    let openhatStep = document.querySelector(`#openhat-${stringStep}`)
+    if(openhatStep.className === "sequencer-openhat-lit") {
+        const audio = document.getElementById("909-openhat")
+        if(!audio) return; 
+        audio.currentTime= 0
+        audio.play()
+    }
+}
+    const tempoIncrease = () => {
+        let bpm = document.querySelector("#bpm")
+        let currewntBpm = parseInt(bpm.innerText)
+        let newBpm = currewntBpm + 1
+        if(newBpm <= 150){
+            bpm.innerText = newBpm
+            currentTempo = newBpm
+            console.log(currentTempo)
+        }
+    }
+      const tempoDecrease = () => {
+        let bpm = document.querySelector("#bpm")
+        let currewntBpm = parseInt(bpm.innerText)
+        let newBpm = currewntBpm - 1
+        if(newBpm >= 60){
+            bpm.innerText = newBpm
+            currentTempo = newBpm
+        }
+       
+    }
+
+ 
+    
+   
+
+    
     const clickHandler = () => {
         document.addEventListener("click", e => {
             if(e.target.matches("#play-stop-button")) {
                 if ((e.target.innerText) === "PLAY") {
                     e.target.innerText = "STOP"
-                    // playSequence()
+                    play()
                 } else if((e.target.innerText) === "STOP") {
                     e.target.innerText = "PLAY"
-                    // stopSequence()
+                    stopPlay()
                 }
             
             }
@@ -89,39 +188,54 @@ document.addEventListener("DOMContentLoaded", () => {
                 tempoDecrease()
             }
             
-            else if(e.target.matches(".sequencer-kick")){
-                e.target.classList.toggle("sequencer-kick-lit")
+            if(e.target.matches(".sequencer-kick") || (".sequencer-kick-lit")) {
+                // e.target.classList.toggle("sequencer-kick-lit")
+                if(e.target.className === "sequencer-kick"){
+                    e.target.classList.remove("sequencer-kick")
+                    e.target.classList.add("sequencer-kick-lit")
+                }
+                else if(e.target.className === "sequencer-kick-lit"){
+                    e.target.classList.remove("sequencer-kick-lit")
+                    e.target.classList.add("sequencer-kick")
+                }
             }
-            else if(e.target.matches(".sequencer-snare")){
-                e.target.classList.toggle("sequencer-snare-lit")
+            
+            if(e.target.matches(".sequencer-snare") || (".sequencer-snare-lit")){
+                if(e.target.className === "sequencer-snare"){
+                    e.target.classList.remove("sequencer-snare")
+                    e.target.classList.add("sequencer-snare-lit")
+                }
+                else if(e.target.className === "sequencer-snare-lit"){
+                    e.target.classList.remove("sequencer-snare-lit")
+                    e.target.classList.add("sequencer-snare")
+                }
             }
-            else if(e.target.matches(".sequencer-closehat")){
-                e.target.classList.toggle("sequencer-closehat-lit")
+            
+            if(e.target.matches(".sequencer-closehat") || (".sequencer-closehat-lit")){
+                if(e.target.className === "sequencer-closehat"){
+                    e.target.classList.remove("sequencer-closehat")
+                    e.target.classList.add("sequencer-closehat-lit")
+                }
+                else if(e.target.className === "sequencer-closehat-lit"){
+                    e.target.classList.remove("sequencer-closehat-lit")
+                    e.target.classList.add("sequencer-closehat")
+                }
             }
-            else if(e.target.matches(".sequencer-openhat")){
-                e.target.classList.toggle("sequencer-openhat-lit")
+            if(e.target.matches(".sequencer-openhat") || (".sequencer-openhat-lit")){
+                if(e.target.className === "sequencer-openhat"){
+                    e.target.classList.remove("sequencer-openhat")
+                    e.target.classList.add("sequencer-openhat-lit")
+                }
+                else if(e.target.className === "sequencer-openhat-lit"){
+                    e.target.classList.remove("sequencer-openhat-lit")
+                    e.target.classList.add("sequencer-openhat")
+                }
             }
                 
         })
     }
 
-    const tempoIncrease = () => {
-        let bpm = document.querySelector("#bpm")
-        let currewntBpm = parseInt(bpm.innerText)
-        let newBpm = currewntBpm + 1
-
-        bpm.innerText = newBpm
-        
-    }
-
-    const tempoDecrease = () => {
-        let bpm = document.querySelector("#bpm")
-        let currewntBpm = parseInt(bpm.innerText)
-        let newBpm = currewntBpm - 1
-
-        bpm.innerText = newBpm
-    }
-
+   
 
     clickHandler()
 })
