@@ -175,7 +175,7 @@ kbd {
     border-radius: 10px;
     text-align: center;
     font-size: 12px;
-    /* vertical-align: middle; */
+    vertical-align: middle;
     /* font-weight: bold; */
     color:#ff481f;
     cursor: pointer;
