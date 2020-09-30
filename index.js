@@ -126,6 +126,9 @@ const playOpenhat= () => {
    
     const clickHandler = () => {
         document.addEventListener("click", e => {
+                
+            var modal = document.getElementById('login-form'); //this is for login form
+
             if(e.target.matches("#play-stop-button")) {
                 if ((e.target.innerText) === "PLAY") {
                     e.target.innerText = "STOP"
@@ -259,6 +262,14 @@ const playOpenhat= () => {
                     e.target.classList.add("sequencer-openhat")
                 }
             }
+            //form click handler
+    // When the user clicks anywhere outside of the modal, close it
+            if (e.target.textContent === "Login")
+                modal.style.display = 'block';
+            else if (e.target == modal) {
+                modal.style.display = "none";
+            }
+
                 
         })
     }
