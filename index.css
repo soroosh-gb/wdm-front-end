@@ -489,6 +489,7 @@ kbd {
     padding: 0;
 }
 
+<<<<<<< HEAD
 .sound {
     margin: 0;
     position: absolute;
@@ -618,3 +619,8 @@ input[type=text], input[type=password] {
        width: 100%;
     }
   }
+=======
+h3 {
+    color: #ff481f;
+}
+>>>>>>> 26bb83e1487b19aabd0851036d03cf17c5f54df9
