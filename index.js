@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
    
+ 
  let playBack;
+ let steps = {}
  
 
  const tempoIncrease = () => {
@@ -121,8 +123,7 @@ const playOpenhat= () => {
     }
 }
     
- 
-    
+
    
     const clickHandler = () => {
         document.addEventListener("click", e => {
@@ -263,7 +264,109 @@ const playOpenhat= () => {
         })
     }
 
-   
+    const submitHandler = () => {
+        document.addEventListener("submit" , e => {
+            e.preventDefault()
+            const form = e.target
+            if(form.matches("#username-input")){
+                
+                console.log("name")
+            }
+            if(form.matches("#save-beat")){
+                createConfig()
+            }
+        })
+    }
+
+    const createConfig = () => {
+        steps.kick = []
+        steps.snare = []
+        steps.closehat = []
+        steps.openhat = []
+
+        const kickWrapper = document.querySelector(".kick-button-wrapper")
+        const kicks = kickWrapper.childNodes
+        
+        let kickSteps = []
+        kicks.forEach(kick => {
+            if(kick.className){
+                kickSteps.push(kick)
+            }
+        })
+        kickSteps.forEach(kick => {
+            if(kick.className === "sequencer-kick"){
+                let step = 0
+                steps.kick.push(step)
+            }
+            if(kick.className === "sequencer-kick-lit"){
+                let step = 1
+                steps.kick.push(step)
+            } 
+        })
+
+        const snareWrapper = document.querySelector(".snare-button-wrapper")
+        const snares = snareWrapper.childNodes
+        
+        let snareSteps = []
+        snares.forEach(snare => {
+            if(snare.className){
+                snareSteps.push(snare)
+            }
+        })
+        snareSteps.forEach(snare => {
+            if(snare.className === "sequencer-snare"){
+                let step = 0
+                steps.snare.push(step)
+            }
+            if(snare.className === "sequencer-snare-lit"){
+                let step = 1
+                steps.snare.push(step)
+            }  
+        })
+
+        const closehatWrapper = document.querySelector(".closehat-button-wrapper")
+        const closehats = closehatWrapper.childNodes
+        
+        let closehatSteps = []
+        closehats.forEach(closehat => {
+            if(closehat.className){
+                closehatSteps.push(closehat)
+            }
+        })
+        closehatSteps.forEach(closehat => {
+            if(closehat.className === "sequencer-closehat"){
+                let step = 0
+                steps.closehat.push(step)
+            }
+            if(closehat.className === "sequencer-closehat-lit"){
+                let step = 1
+                steps.closehat.push(step)
+            }  
+        })
+
+        const openhatWrapper = document.querySelector(".openhat-button-wrapper")
+        const openhats = openhatWrapper.childNodes
+        
+        let openhatSteps = []
+        openhats.forEach(openhat => {
+            if(openhat.className){
+                openhatSteps.push(openhat)
+            }
+        })
+        openhatSteps.forEach(openhat => {
+            if(openhat.className === "sequencer-openhat"){
+                let step = 0
+                steps.openhat.push(step)
+            }
+            if(openhat.className === "sequencer-openhat-lit"){
+                let step = 1
+                steps.openhat.push(step)
+            }  
+        })
+
+    }
+   console.log(steps)
 
     clickHandler()
+    submitHandler()
 })
