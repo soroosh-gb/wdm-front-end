@@ -522,6 +522,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             const newSteps = steps
             saveBeat(beatName, newSteps)
+            // console.log(beatName, newSteps)
         }
     // name: , tempo: , steps:
         const saveBeat = (beatName, newSteps) => {
@@ -547,24 +548,11 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(beat => {
                 renderBeat(beat)
                 resetSequencer()
-                // loadSavedBeat(beat)
+                
             })
         }
 
-        // const loadSavedBeat = beat => {
-        //     const select = document.querySelector("select")
-        //     select.addEventListener("change", e => {
-        //         const beatId = beat.id
-    
-        //         // fetch(`http://localhost:3000/api/v1/beats/${beatId}/`)
-        //         fetch("http://localhost:3000/api/v1/beats/" + beatId)
-        //         .then(response => response.json())
-        //         .then(beat => {
-        //             loadToSequencer(beat)
-                    
-        //         })
-        //     })
-        // }
+     
 
         const enterUser = name => {
             const options = {
