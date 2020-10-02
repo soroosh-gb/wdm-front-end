@@ -379,9 +379,5 @@ const playOpenhat= () => {
    console.log(steps)
 
     clickHandler()
-<<<<<<< HEAD
-})
-=======
     submitHandler()
 })
->>>>>>> 26bb83e1487b19aabd0851036d03cf17c5f54df9

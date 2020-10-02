@@ -489,7 +489,6 @@ kbd {
     padding: 0;
 }
 
-<<<<<<< HEAD
 .sound {
     margin: 0;
     position: absolute;
@@ -500,25 +499,33 @@ kbd {
 }
 
 
+#username-input {
+  margin: 20px;
+}
+
+#save-beat {
+  margin: 20px;
+}
+
 /*BELOW ARE LOGIN FORM STYLING */
-input[type=text], input[type=password] {
+.modal {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-  }
+  } 
   
   /* Set a style for all buttons */
   button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px 75px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 25%;
   }
   
   button:hover {
@@ -619,8 +626,6 @@ input[type=text], input[type=password] {
        width: 100%;
     }
   }
-=======
 h3 {
     color: #ff481f;
 }
->>>>>>> 26bb83e1487b19aabd0851036d03cf17c5f54df9
