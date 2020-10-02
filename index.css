@@ -1,5 +1,6 @@
 h1 {
-    background-color: purple;
+    align-content: center;
+    
 }
 
 body {
@@ -503,19 +504,12 @@ kbd {
 .beat-list {
   margin: 20px;
 }
-/* #username-input {
-  margin: 20px;
+
+h3 {
+  color: #ff481f;
 }
 
-#save-beat {
-  margin: 20px;
-}
-
-.beat-list {
-  margin: 20px;
-} */
-
-/*BELOW ARE LOGIN FORM STYLING */
+/*BELOW ARE LOGIN FORM STYLING. *update: NOT USED! DON'T WORRY ABOUT THE CODE BELOW */
 .modal {
     width: 100%;
     padding: 12px 20px;
@@ -634,6 +628,3 @@ kbd {
        width: 100%;
     }
   }
-h3 {
-    color: #ff481f;
-}
