@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     let playBack;
     let steps = {
+        kick: [],
+        snare: [],
+        closehat: [],
+        openhat: [],
     }
 
     const getBeats = () => {
@@ -29,17 +33,125 @@ document.addEventListener("DOMContentLoaded", () => {
         select.addEventListener("change", e => {
             const beatId = e.target.value
 
-            fetch(`http://localhost:3000/api/v1/beats/${beatId}`)
+            // fetch(`http://localhost:3000/api/v1/beats/${beatId}/`)
+            fetch("http://localhost:3000/api/v1/beats/" + beatId)
             .then(response => response.json())
             .then(beat => {
                 loadToSequencer(beat)
+                
             })
+        })
+    }
+    //  const kickWrapper = document.querySelector(".kick-button-wrapper")
+    // const kicks = kickWrapper.childNodes
+            
+    // let kickSteps = []
+    // kicks.forEach(kick => {
+    //     if(kick.className){
+    //         kickSteps.push(kick)
+    //     }
+    // })
+    const resetSequencer = () => {
+        const kickWrapper = document.querySelector(".kick-button-wrapper")
+        const kicks = kickWrapper.childNodes
+        kicks.forEach(step => {
+            if(step.className){
+                step.className = "sequencer-kick"
+            }
+        })
+
+        const snareWrapper = document.querySelector(".snare-button-wrapper")
+        const snares = snareWrapper.childNodes
+        snares.forEach(step => {
+            if(step.className){
+                step.className = "sequencer-snare"
+            }
+        })
+
+        const closehatWrapper = document.querySelector(".closehat-button-wrapper")
+        const closehats = closehatWrapper.childNodes
+        closehats.forEach(step => {
+            if(step.className){
+                step.className = "sequencer-closehat"
+            }
+        })
+
+        const openhatWrapper = document.querySelector(".openhat-button-wrapper")
+        const openhats = openhatWrapper.childNodes
+        openhats.forEach(step => {
+            if(step.className){
+                step.className = "sequencer-openhat"
+            }
         })
     }
 
     const loadToSequencer = beat => {
-       
-        console.log(beat)
+        let stepsArray = JSON.parse(beat.steps.split("=>").join(":"))
+
+        resetSequencer()
+        
+        const kickWrapper = document.querySelector(".kick-button-wrapper")
+        const kicks = kickWrapper.childNodes
+        let kickSteps = []
+        kicks.forEach(step => {
+            if(step.className){
+                kickSteps.push(step)
+            }
+        })
+        let kickArray = stepsArray.kick
+        for(let i = 0; i < kickArray.length; i++){
+            if(kickArray[i] === 1){
+                kickSteps[i].className = "sequencer-kick-lit"
+            }
+        }
+
+        const snareWrapper = document.querySelector(".snare-button-wrapper")
+        const snares = snareWrapper.childNodes
+        let snareSteps = []
+        snares.forEach(step => {
+            if(step.className){
+                snareSteps.push(step)
+            }
+        })
+        let snareArray = stepsArray.snare
+        for(let i = 0; i < snareArray.length; i++){
+            if(snareArray[i] === 1){
+                snareSteps[i].className = "sequencer-snare-lit"
+            }
+        }
+        
+        const closehatWrapper = document.querySelector(".closehat-button-wrapper")
+        const closehats = closehatWrapper.childNodes
+        let closehatSteps = []
+        closehats.forEach(step => {
+            if(step.className){
+                closehatSteps.push(step)
+            }
+        })
+        let closehatArray = stepsArray.closehat
+        for(let i = 0; i < closehatArray.length; i++){
+            if(closehatArray[i] === 1){
+                closehatSteps[i].className = "sequencer-closehat-lit"
+            }
+        }
+        
+        
+        const openhatWrapper = document.querySelector(".openhat-button-wrapper")
+        const openhats = openhatWrapper.childNodes
+        let openhatSteps = []
+        openhats.forEach(step => {
+            if(step.className){
+                openhatSteps.push(step)
+            }
+        })
+        let openhatArray = stepsArray.openhat
+        for(let i = 0; i < openhatArray.length; i++){
+            if(openhatArray[i] === 1){
+                openhatSteps[i].className = "sequencer-openhat-lit"
+            }
+        }
+        
+        
     }
 
     const tempoIncrease = () => {
@@ -297,6 +409,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         e.target.classList.add("sequencer-openhat")
                     }
                 }
+                if(e.target.matches("#reset-btn")){
+                    resetSequencer()
+                }
                     
             })
         }
@@ -309,6 +424,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let name = form.name.value
 
                     enterUser(name)
+                    form.reset()
                 }
                 if(form.matches("#save-beat")){
                     let beatName = form.name.value
@@ -320,10 +436,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const createConfig = beatName => {
            
-            steps.kick = []
-            steps.snare = []
-            steps.closehat = []
-            steps.openhat = []
+            // steps.kick = []
+            // steps.snare = []
+            // steps.closehat = []
+            // steps.openhat = []
 
             const kickWrapper = document.querySelector(".kick-button-wrapper")
             const kicks = kickWrapper.childNodes
@@ -449,6 +565,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(user => {
                 const body = document.querySelector("body")
                 body.dataset.id = user.id
+                const nameDiv = document.querySelector("#user-name")
+                nameDiv.innerText = `Welcome ${user.name}`
             })
         }
 
