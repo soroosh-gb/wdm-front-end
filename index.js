@@ -42,15 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         })
     }
-    //  const kickWrapper = document.querySelector(".kick-button-wrapper")
-    // const kicks = kickWrapper.childNodes
-            
-    // let kickSteps = []
-    // kicks.forEach(kick => {
-    //     if(kick.className){
-    //         kickSteps.push(kick)
-    //     }
-    // })
+   
     const resetSequencer = () => {
         const kickWrapper = document.querySelector(".kick-button-wrapper")
         const kicks = kickWrapper.childNodes
@@ -86,9 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const loadToSequencer = beat => {
+        resetSequencer()
+        const tempo = document.querySelector("#bpm")
+        tempo.innerText = beat.tempo 
         let stepsArray = JSON.parse(beat.steps.split("=>").join(":"))
 
-        resetSequencer()
+        
         
         const kickWrapper = document.querySelector(".kick-button-wrapper")
         const kicks = kickWrapper.childNodes
@@ -96,10 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
         kicks.forEach(step => {
             if(step.className){
                 kickSteps.push(step)
+                
             }
         })
         let kickArray = stepsArray.kick
-        for(let i = 0; i < kickArray.length; i++){
+        for(let i = 0; i < 16; i++){
             if(kickArray[i] === 1){
                 kickSteps[i].className = "sequencer-kick-lit"
             }
@@ -114,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
         let snareArray = stepsArray.snare
-        for(let i = 0; i < snareArray.length; i++){
+        for(let i = 0; i < 16; i++){
             if(snareArray[i] === 1){
                 snareSteps[i].className = "sequencer-snare-lit"
             }
@@ -129,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
         let closehatArray = stepsArray.closehat
-        for(let i = 0; i < closehatArray.length; i++){
+        for(let i = 0; i < 16; i++){
             if(closehatArray[i] === 1){
                 closehatSteps[i].className = "sequencer-closehat-lit"
             }
@@ -145,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
         let openhatArray = stepsArray.openhat
-        for(let i = 0; i < openhatArray.length; i++){
+        for(let i = 0; i < 16; i++){
             if(openhatArray[i] === 1){
                 openhatSteps[i].className = "sequencer-openhat-lit"
             }
@@ -428,19 +424,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 if(form.matches("#save-beat")){
                     let beatName = form.name.value
+
+                    steps = {
+                        kick: [],
+                        snare: [],
+                        closehat: [],
+                        openhat: [],
+                    }
                     
                     createConfig(beatName)
+                    form.reset()
                 }
             })
         }
 
         const createConfig = beatName => {
+            
            
-            // steps.kick = []
-            // steps.snare = []
-            // steps.closehat = []
-            // steps.openhat = []
-
             const kickWrapper = document.querySelector(".kick-button-wrapper")
             const kicks = kickWrapper.childNodes
             
@@ -458,7 +458,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(kick.className === "sequencer-kick-lit"){
                     let step = 1
                     steps.kick.push(step)
-                    console.log(steps)
                 } 
             })
 
@@ -521,11 +520,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     steps.openhat.push(step)
                 }  
             })
-
-            saveBeat(beatName)
+            const newSteps = steps
+            saveBeat(beatName, newSteps)
         }
     // name: , tempo: , steps:
-        const saveBeat = beatName => {
+        const saveBeat = (beatName, newSteps) => {
             const body = document.querySelector("body")
             const userId = body.dataset.id
             
@@ -534,8 +533,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const bName = beatName
 
-            const allSteps = steps
-            
+            const allSteps = newSteps
             const options = {
                 method: "POST",
                 headers: {
@@ -548,8 +546,25 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(reponse => reponse.json())
             .then(beat => {
                 renderBeat(beat)
+                resetSequencer()
+                // loadSavedBeat(beat)
             })
         }
+
+        // const loadSavedBeat = beat => {
+        //     const select = document.querySelector("select")
+        //     select.addEventListener("change", e => {
+        //         const beatId = beat.id
+    
+        //         // fetch(`http://localhost:3000/api/v1/beats/${beatId}/`)
+        //         fetch("http://localhost:3000/api/v1/beats/" + beatId)
+        //         .then(response => response.json())
+        //         .then(beat => {
+        //             loadToSequencer(beat)
+                    
+        //         })
+        //     })
+        // }
 
         const enterUser = name => {
             const options = {
