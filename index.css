@@ -1,10 +1,24 @@
-h1 {
-    background-color: purple;
+html {
+  background: url('https://w.wallhaven.cc/full/ym/wallhaven-ymgg2x.jpg');
+  background-size: cover;
 }
 
-body {
-    background-color: #161e27;
+h1 {
+    align-content: center;
+    color: aliceblue;
 }
+
+.form-input {
+  border-radius: 25px;
+  border: 2px solid #fcfcfb;
+  padding: 5px;
+  width: 300px;
+  height: 200px;
+}
+
+/* body {
+    background-color: #161e27;
+} */
 
 
 * {
@@ -17,9 +31,10 @@ body {
     justify-content: center;
     height: 100vh;
 } */
-kbd {
+text {
     margin: 0;
     position: absolute;
+    align-content: center;
     top: 50%;
     left: 50%;
     margin-right: -50%;
@@ -33,7 +48,7 @@ kbd {
     width: 130vh;
     height: 65vh;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 5%;
     position: relative;
     
 }
@@ -181,6 +196,7 @@ kbd {
     margin-left: 792px;
     right: 1;
     bottom: 0;
+    align-content: center;
     box-shadow: 0px 4px 4px 4px #999;
     border-radius: 10px;
     text-align: center;
@@ -327,6 +343,7 @@ kbd {
     text-align: center;
     font-size: 12px;
     cursor: pointer;
+    align-content: center;
     /* vertical-align: middle; */
     /* font-weight: bold; */
     color:#ff481f;
@@ -401,6 +418,7 @@ kbd {
     text-align: center;
     font-size: 12px;
     cursor: pointer;
+    align-content: center;
     /* vertical-align: middle; */
     /* font-weight: bold; */
     color:#ff481f;
@@ -475,6 +493,7 @@ kbd {
     text-align: center;
     font-size: 12px;
     cursor: pointer;
+    align-content: center;
     /* vertical-align: middle; */
     /* font-weight: bold; */
     color:#ff481f;
@@ -489,6 +508,81 @@ kbd {
     padding: 0;
 }
 
-h3 {
-    color: #ff481f;
+.sound {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
+
+
+
+.beat-list {
+  margin: 20px;
+}
+
+h3 {
+  color: #ff481f;
+}
+
+#reset-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  width: 10%;
+}
+/*BELOW ARE LOGIN FORM STYLING. *update: NOT USED! DON'T WORRY ABOUT THE CODE BELOW */
+
+
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  
+  
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+
+  /* Add Zoom Animation */
+  
+  /* .animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  /* @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }  */

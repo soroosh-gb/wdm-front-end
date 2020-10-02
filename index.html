@@ -9,17 +9,66 @@
 </head>
 
 <body>
+    <header>
+        <h1>🥁 WDM 🥁</h1><br>
+        <nav>
+            <ul class="form-input">
+                <div class="beat-list">
+                    <form id="username-input">
+                        <h3>Name:</h3><input type="text" name="name"><input type="submit" value="ENTER NAME">
+                    </form>
+                </div>
+                <div class="beat-list">
+                     <form id="save-beat">
+                     <h3>Beat Name:</h3><input type="text" name="name">
+                     <!-- <h3>Save</h3><input type="text"> -->
+                     <input type="submit" value="SAVE BEAT">
+                    </form>
+                </div>
+                <div class="beat-list">
+                    <label for="load"><h3>Load a beat:</h3></label>
+                    <select name="load" id="load-beats">
+                        <option value="i">beat-1</option>
+                        <option value="12">beat-2</option> 
+                    </select>
+                </div>
+          </ul>
+        </nav>
+      </header>
+    <!-- Form starts here -->
+    <!-- <h2>Modal Login Form</h2> -->
+  
+    <!-- <button style="width:auto;">Login</button>
+
+    <div id="login-form" class="modal"> 
+        <form class="modal-content animate">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('login-form').style.display='none'" class="close" title="Close Modal">&times;</span>
+                 <img src="" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+                 <label for="psw"><b>Password</b></label> 
+                <input type="password" placeholder="Enter Password" name="psw" > 
+                <button type="submit">Login</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('login-form').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+         </form>
+    </div>  -->
+
+   
+    <!-- Form ends here-->
 
     <audio id="909-kick" src="audio/909/kick-909.mp3"></audio>
     <audio id="909-snare" src="audio/909/snare-909.mp3"></audio>
     <audio id="909-closehat" src="audio/909/close-hat-909.mp3"></audio>
     <audio id="909-openhat" src="audio/909/open-hat-909.mp3"></audio>
 
-    <form id="username-input">
-        <h3>Name:</h3><input type"text" name="name"><input type="submit" value="ENTER NAME">
-    </form>
-    <button id="reset-btn" type="button">RESET</button>
-    <h3><div id="user-name"></div></h3>
     <!-- <div id="main-container">  -->
     <div id="drum-case">
         <div id="left-pannel"></div>
@@ -32,32 +81,32 @@
         </div>
 
         <div id="kick-trigger">
-            <kbd>KICK</kbd>
+            <text>KICK</text>
         </div>
         <div id="kick-mute">
-            <text>MUTE</text>
+            <text >MUTE</text>
             <!-- <kbd>MUTE</kbd> -->
         </div>
 
         <div id="snare-trigger">
-            <kbd>SNARE</kbd>
+            <text>SNARE</text>
         </div>
         <div id="snare-mute">
-            <kbd>MUTE</kbd>
+            <text>MUTE</text>
         </div>
 
         <div id="closehat-trigger">
-            <kbd>C-Hat</kbd>
+            <text>C-Hat</text>
         </div>
         <div id="closehat-mute">
-            <kbd>MUTE</kbd>
+            <text>MUTE</text>
         </div>
 
         <div id="openhat-trigger">
-            <kbd>O-Hat</kbd>
+            <text>O-Hat</text>
         </div>
         <div id="openhat-mute">
-            <kbd>MUTE</kbd>
+            <text>MUTE</text>
         </div>
 
         <div class="button-row" id="main-sequencer">
@@ -183,16 +232,11 @@
 
         </div>  
 
+    </div><br>
+
+    <div>
+        <button id="reset-btn" type="button">RESET</button>
     </div>
-    <form id="save-beat">
-        <h3>Beat Name:</h3><input type="text" name="name">
-        <!-- <h3>Save</h3><input type="text"> -->
-        <input type="submit" value="SAVE BEAT">
-    </form>
-    <br>
-    <label for="load"><h3>Load a beat:</h3></label>
-    <select  name="load" id="load-beats" >
-        <option value="value">Select a beat</option>
-    </select>
+   
 </body>
 </html>

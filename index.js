@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         const clickHandler = () => {
             document.addEventListener("click", e => {
-                if(e.target.matches("#play-stop-button")) {
+                if(e.target.matches("#play-stop-button text")) {
                     if ((e.target.innerText) === "PLAY") {
                         e.target.innerText = "STOP"
                         play()
@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 
                 }
-                else if(e.target.matches("#kick-trigger")){
+                else if(e.target.matches("#kick-trigger text")){
                     // play kick sample from library
                     const audio = document.getElementById("909-kick")
                     if(!audio) return; //stop the function from running all together
@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     audio.volume = 0.8
                     audio.play()
                 }
-                else if(e.target.matches("#snare-trigger")){
+                else if(e.target.matches("#snare-trigger text")){
                     // play snare sample from library
                     const audio = document.getElementById("909-snare")
                     if(!audio) return; 
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     audio.volume = 0.8
                     audio.play()
                 }
-                else if(e.target.matches("#closehat-trigger")){
+                else if(e.target.matches("#closehat-trigger text")){
                     // play close hat sample from library
                     const audio = document.getElementById("909-closehat")
                     if(!audio) return; 
@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     audio.volume = 0.5 
                     audio.play()
                 }
-                else if(e.target.matches("#openhat-trigger")){
+                else if(e.target.matches("#openhat-trigger text")){
                     // play open hat sample from library
                     const audio = document.getElementById("909-openhat")
                     if(!audio) return; 
@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     audio.volume = 0.4
                     audio.play()
                 }
-                else if(e.target.matches("#kick-mute")){
+                else if(e.target.matches("#kick-mute text")){
                     if(e.target.innerText === "MUTE"){
                         // mute kick
                         e.target.innerText = "UNMUTE"
@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     console.log("kick=m")
                 }
-                else if(e.target.matches("#snare-mute")){
+                else if(e.target.matches("#snare-mute text")){
                     if(e.target.innerText === "MUTE"){
                         // mute snare
                         e.target.innerText = "UNMUTE"
@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     
                     console.log("snare=m")
                 }
-                else if(e.target.matches("#closehat-mute")){
+                else if(e.target.matches("#closehat-mute text")){
                     if(e.target.innerText === "MUTE"){
                         // mute close hat
                         e.target.innerText = "UNMUTE"
@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     console.log("chat=m")
                 }
-                else if(e.target.matches("#openhat-mute")){
+                else if(e.target.matches("#openhat-mute text")){
                     if(e.target.innerText === "MUTE"){
                         // mute open hat
                         e.target.innerText = "UNMUTE"
