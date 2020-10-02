@@ -499,13 +499,21 @@ kbd {
 }
 
 
-#username-input {
+
+.beat-list {
+  margin: 20px;
+}
+/* #username-input {
   margin: 20px;
 }
 
 #save-beat {
   margin: 20px;
 }
+
+.beat-list {
+  margin: 20px;
+} */
 
 /*BELOW ARE LOGIN FORM STYLING */
 .modal {
